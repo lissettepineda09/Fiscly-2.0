@@ -2,7 +2,7 @@
 
 Sitio de fiscly, facturación electrónica en línea (CFDI 4.0).
 
-**En vivo:** https://lissettepineda09.github.io/Fiscly/
+**En vivo:** https://lissettepineda09.github.io/Fiscly-2.0/
 
 ## Páginas
 | Página | Archivo |
