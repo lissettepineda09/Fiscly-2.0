@@ -1,0 +1,79 @@
+/* fiscly · tokens del sitio web */
+
+@font-face { font-family: "Neue Montreal"; src: url("../fonts/HelveticaNeue-Roman.otf"); font-weight: 400; }
+@font-face { font-family: "Neue Montreal"; src: url("../fonts/HelveticaNeue-Medium.otf"); font-weight: 500; }
+/* Milligram (display) solo cubre letras. Números y símbolos caen en Neue Medium.
+   Licencia: el archivo actual es versión DEMO de Zetafonts. Comprar licencia antes de publicar. */
+@font-face { font-family: "Milligram"; src: url("../fonts/HelveticaNeue-Medium.otf"); font-weight: 500; }
+@font-face { font-family: "Milligram"; src: url("../fonts/Milligram-Macro-Medium.ttf"); font-weight: 500;
+  unicode-range: U+0020, U+002C, U+002E, U+0041-005A, U+0061-007A, U+00C0-00FF; }
+
+:root {
+  /* Color */
+  --tinta: #1A1A1A;          /* negro principal, fondos oscuros, texto */
+  --pestana: #FF411D;        /* naranja de marca: CTA, acentos, punto final */
+  --hueso: #F5EEDC;          /* crema: superficies suaves, tiles de icono */
+  --blanco: #FFFFFF;
+  --grafito: #4A4640;        /* texto secundario sobre claro */
+  --arena: #E6DCC3;          /* bordes y divisores sobre claro */
+  --niebla: #B9B4AC;         /* texto secundario sobre oscuro */
+  --carbon-1: #242321;       /* tarjeta sobre negro */
+  --carbon-2: #33312E;       /* borde/divisor sobre negro */
+  --ceniza: #7A756D;         /* texto inactivo sobre oscuro */
+
+  /* Tipografía */
+  --font-display: "Milligram", "Neue Montreal", sans-serif;  /* titulares, letter-spacing 0.015em */
+  --font-text: "Neue Montreal", Helvetica, Arial, sans-serif; /* todo lo demás, peso 500 */
+  --font-mono: "IBM Plex Mono", monospace;                     /* RFC, UUID, folios, código */
+
+  --h1: clamp(42px, 5.6vw, 100px);   /* line-height 1 */
+  --h2: clamp(34px, 4.2vw, 68px);    /* line-height 1 */
+  --h3: clamp(26px, 2.4vw, 34px);    /* letter-spacing -0.02em */
+  --lead: clamp(18px, 1.45vw, 21px); /* line-height 1.5 */
+  --body: 16px;                      /* line-height 1.5 */
+  --small: 14px;
+  --micro: 12px;
+  --display-tracking: 0.015em;
+
+  /* Espaciado */
+  --page-max: 1360px;
+  --page-pad: clamp(20px, 4vw, 56px);
+  --section-y: clamp(100px, 12vw, 170px);
+  --frame-pad: clamp(8px, 1vw, 16px);  /* margen de los bloques negros redondeados */
+
+  /* Radios */
+  --r-btn: 6px;
+  --r-card: 8px;
+  --r-card-lg: 10px;
+  --r-block: 12px;      /* secciones negras a sangre */
+  --r-tile: 10px;       /* tile blanco de icono 56×48 */
+  --r-hero-shape: 28px; /* rectángulo de color detrás de los mockups del hero */
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --ease-reveal: cubic-bezier(.16, .84, .24, 1);
+  --dur-hover: .25s;
+  --dur-card: .5s;
+}
+
+/* Elementos base */
+body { margin: 0; background: var(--blanco); color: var(--tinta); font-family: var(--font-text); font-weight: 500; -webkit-font-smoothing: antialiased; }
+a { color: var(--tinta); text-decoration: none; }
+a:hover { color: var(--pestana); }
+::selection { background: var(--pestana); color: var(--blanco); }
+
+/* Patrones recurrentes */
+.eyebrow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--grafito); }
+.eyebrow::before { content: ""; width: 12px; height: 10px; border-radius: 2.5px; background: var(--pestana); }
+.display { font-family: var(--font-display); letter-spacing: var(--display-tracking); line-height: 1; }
+.display .punto { color: var(--pestana); } /* todos los titulares terminan en punto naranja */
+
+.btn-primary { background: var(--pestana); color: var(--blanco); padding: 18px 28px; border-radius: var(--r-btn); font-size: 17px; transition: background var(--dur-hover), color var(--dur-hover); }
+.btn-primary:hover { background: var(--tinta); color: var(--blanco); }          /* sobre claro */
+.on-dark .btn-primary:hover { background: var(--blanco); color: var(--tinta); } /* sobre negro */
+.btn-ghost-dark { padding: 17px 22px; border-radius: var(--r-btn); color: var(--blanco); border: 1px solid rgba(255,255,255,.5); }
+
+.icon-tile { width: 56px; height: 48px; border-radius: var(--r-tile); background: var(--blanco); display: flex; align-items: center; justify-content: center; }
+.icon-tile img { width: 28px; }
+
+.block-dark { background: var(--tinta); color: var(--blanco); border-radius: var(--r-block); margin: 0 var(--frame-pad); }
